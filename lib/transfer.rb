@@ -19,7 +19,7 @@ class Transfer
       sender.balance -= @amount
       receiver.balance += @amount
       self.status = "complete"
-    elsif !valid?
+    else
       rejection_message
     end
   end
