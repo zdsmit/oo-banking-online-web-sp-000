@@ -20,8 +20,7 @@ class Transfer
       receiver.balance += @amount
       self.status = "complete"
     elsif !valid?
-      self.status = "rejected"
-      "Transaction rejected. Please check your account balance."
+      rejection_message
     end
   end
 
@@ -30,6 +29,11 @@ class Transfer
       sender.balance += @amount
       receiver.balance -= @amount
     end
+  end
+
+  def rejection_message
+    self.status = "rejected"
+    "Transaction rejected. Please check your account balance."
   end
 
 end
